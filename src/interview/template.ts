@@ -1,3 +1,4 @@
+import { url } from "../core/paths";
 import { timecode, type InterviewData } from "./types";
 
 const icon = {
@@ -21,7 +22,7 @@ export function renderInterview(d: InterviewData) {
   const captions = session.video.captions;
 
   return `
-  <a class="interview__back" href="${d.url_back}" data-history="back">
+  <a class="interview__back" href="${url(d.url_back)}" data-history="back">
     <span>Close</span>${icon.close}
   </a>
 
@@ -46,7 +47,7 @@ export function renderInterview(d: InterviewData) {
     <ul class="interview-related__list">
       ${d.related
         .map(
-          (r) => `<li><a href="${r.url}" data-history="replace"><img src="${r.image}" alt="" /><span>${r.title}</span></a></li>`,
+          (r) => `<li><a href="${url(r.url)}" data-history="replace"><img src="${url(r.image)}" alt="" /><span>${r.title}</span></a></li>`,
         )
         .join("")}
     </ul>
@@ -55,10 +56,10 @@ export function renderInterview(d: InterviewData) {
 
   <div class="interview-video">
     <div class="player" tabindex="-1">
-      <video playsinline preload="auto" src="${session.video.src}" crossorigin="anonymous">
-        ${captions.map((c) => `<track kind="captions" label="${c.label}" srclang="${c.srclang}" src="${c.src}" />`).join("")}
+      <video playsinline preload="auto" src="${url(session.video.src)}" crossorigin="anonymous">
+        ${captions.map((c) => `<track kind="captions" label="${c.label}" srclang="${c.srclang}" src="${url(c.src)}" />`).join("")}
       </video>
-      <div class="player__poster" style="background-image:url(${d.thumbnail})"></div>
+      <div class="player__poster" style="background-image:url(${url(d.thumbnail)})"></div>
       <button class="player__toggle" aria-label="Play or pause"></button>
       <div class="player__captions"></div>
       <div class="player__bar">
@@ -144,7 +145,7 @@ export function renderInterview(d: InterviewData) {
         ${d.downloads
           .map(
             (f) =>
-              `<a class="interview-downloads__item" href="${f.url}" download><span>${f.name}<small>.${f.ext}</small></span><span><strong>${f.size}</strong>${icon.download}</span></a>`,
+              `<a class="interview-downloads__item" href="${url(f.url)}" download><span>${f.name}<small>.${f.ext}</small></span><span><strong>${f.size}</strong>${icon.download}</span></a>`,
           )
           .join("")}
       </section>

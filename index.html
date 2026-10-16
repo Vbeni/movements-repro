@@ -18,7 +18,7 @@
 
     <header class="s-header" id="header">
       <div class="s-header__wrap grid-wrap">
-        <a class="s-header__logo" href="/" aria-label="Home">
+        <a class="s-header__logo" href="%BASE_URL%" aria-label="Home">
           <span>Oral History</span>
           <span>Archive</span>
           <span>Test</span>
@@ -37,7 +37,7 @@
                 <figure
                   class="m-intro__graph js-audio-toggle is-muted"
                   data-component="AudioGraph"
-                  data-options='{"loops":[{"label":"Test Speaker A","url":"/interviews/test-speaker-a","timestamp":0},{"label":"","url":"","timestamp":11},{"label":"","url":"","timestamp":24},{"label":"Test Speaker B","url":"/interviews/test-speaker-a","timestamp":36},{"label":"Test Speaker C","url":"/interviews/test-speaker-a","timestamp":61}]}'
+                  data-options='{"loops":[{"label":"Test Speaker A","url":"%BASE_URL%interviews/test-speaker-a","timestamp":0},{"label":"","url":"","timestamp":11},{"label":"","url":"","timestamp":24},{"label":"Test Speaker B","url":"%BASE_URL%interviews/test-speaker-a","timestamp":36},{"label":"Test Speaker C","url":"%BASE_URL%interviews/test-speaker-a","timestamp":61}]}'
                 >
                   <canvas></canvas>
                 </figure>
@@ -47,8 +47,8 @@
                 </div>
                 <div class="m-intro__title js-title"><span>fidelity</span> <span>test</span></div>
                 <figure class="m-intro__thumbnail">
-                  <a href="/interviews/test-speaker-a" class="m-intro__link js-audio-link">
-                    <video src="/media/home-loop.mp4" poster="/media/home-loop.jpg" autoplay loop playsinline muted></video>
+                  <a href="%BASE_URL%interviews/test-speaker-a" class="m-intro__link js-audio-link">
+                    <video src="%BASE_URL%media/home-loop.mp4" poster="%BASE_URL%media/home-loop.jpg" autoplay loop playsinline muted></video>
                     <figcaption class="m-intro__caption desktop-only">
                       <span class="js-audio-caption">Test Speaker A</span>
                     </figcaption>
@@ -119,7 +119,7 @@
             </div>
             <div class="m-interviews__wrap">
               <ul class="tiles grid" data-component="Tiles"></ul>
-              <a href="/interviews/test-speaker-a" class="more arrow-hover">
+              <a href="%BASE_URL%interviews/test-speaker-a" class="more arrow-hover">
                 <span class="more__label">
                   <i class="arrow" data-component="Arrow">
                     <i></i>
@@ -159,7 +159,7 @@
 
     <footer class="s-footer">
       <span>UX test build — placeholder content and synthetic media only.</span>
-      <nav><a href="/">Home</a><a href="/interviews/test-speaker-a">Sample interview</a></nav>
+      <nav><a href="%BASE_URL%">Home</a><a href="%BASE_URL%interviews/test-speaker-a">Sample interview</a></nav>
     </footer>
 
     <aside class="interview" id="interview">

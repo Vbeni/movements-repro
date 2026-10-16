@@ -1,5 +1,6 @@
 import { Interview } from "../interview/Interview";
 import { gsap, ScrollTrigger } from "./motion";
+import { url } from "./paths";
 import { Page } from "./Page";
 
 /**
@@ -25,7 +26,7 @@ export class Site {
     this.bindHashLinks();
 
     // Landing directly on an interview URL serves the home page; the overlay opens on top of it.
-    if (Interview.matches(this.pagePath)) this.pagePath = "/";
+    if (Interview.matches(this.pagePath)) this.pagePath = url("/");
 
     document.fonts.ready.then(() => {
       document.body.classList.remove("is-not-ready");

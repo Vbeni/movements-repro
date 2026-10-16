@@ -1,4 +1,5 @@
 import { Component } from "../core/Component";
+import { url } from "../core/paths";
 import { TEASERS } from "../data/interviews";
 
 /** Renders the interview teaser grid from data. */
@@ -7,10 +8,10 @@ export class Tiles extends Component {
     this.view.innerHTML = TEASERS.map(
       (t) => `
       <li class="tile-interview col-span-4" data-video-hover>
-        <a class="tile-interview__link" href="/interviews/${t.slug}">
+        <a class="tile-interview__link" href="${url(`/interviews/${t.slug}`)}">
           <div class="tile-interview__image">
-            <img src="/media/tiles/clip-${t.clip}.jpg" alt="" loading="lazy" />
-            <video src="/media/tiles/clip-${t.clip}.mp4" muted playsinline loop preload="none"></video>
+            <img src="${url(`/media/tiles/clip-${t.clip}.jpg`)}" alt="" loading="lazy" />
+            <video src="${url(`/media/tiles/clip-${t.clip}.mp4`)}" muted playsinline loop preload="none"></video>
           </div>
           <div class="tile-interview__content">
             <div class="tile-interview__name">${t.name}</div>

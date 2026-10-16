@@ -1,4 +1,5 @@
 import { EASE, gsap } from "../core/motion";
+import { route, url } from "../core/paths";
 import { Panel } from "./Panel";
 import { Player } from "./Player";
 import { renderInterview } from "./template";
@@ -16,11 +17,12 @@ export class Interview {
   private player?: Player;
   private panel?: Panel;
   private scrollTop = 0;
+  private pageTitle = document.title;
   private openPath: string | null = null;
   private abort?: AbortController;
 
   static matches(pathname: string) {
-    return ROUTE.test(pathname);
+    return ROUTE.test(route(pathname));
   }
 
   constructor(private el: HTMLElement) {
@@ -48,7 +50,7 @@ export class Interview {
     this.abort = new AbortController();
     this.el.classList.add("is-fetching");
     // The real site POSTs to the page URL; we serve one static JSON for every slug.
-    const load = fetch("/data/interview.json", { signal: this.abort.signal }).then((r) => r.json() as Promise<InterviewData>);
+    const load = fetch(url("/data/interview.json"), { signal: this.abort.signal }).then((r) => r.json() as Promise<InterviewData>);
 
     try {
       const [data] = await Promise.all([load, switching ? this.animateOut() : Promise.resolve()]);
@@ -66,6 +68,7 @@ export class Interview {
   private show() {
     this.el.classList.add("is-open");
     this.scrollTop = window.scrollY;
+    this.pageTitle = document.title;
     gsap.to(this.el, {
       yPercent: 0,
       duration: 1,
@@ -80,6 +83,7 @@ export class Interview {
   private async close() {
     this.openPath = null;
     this.abort?.abort();
+    document.title = this.pageTitle;
     this.player?.video.pause();
     const animateOut = this.animateOut();
     document.body.classList.remove("is-interview-open");
