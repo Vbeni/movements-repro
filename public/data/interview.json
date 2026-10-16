@@ -1,0 +1,220 @@
+{
+  "title": "Interview with Test Speaker A",
+  "url": "/interviews/test-speaker-a",
+  "url_back": "/",
+  "date": "January 1, 2026",
+  "location": "Sample City, AA",
+  "thumbnail": "/media/interview.jpg",
+  "totalDuration": 180,
+  "narrator": {
+    "name": "Test Speaker A"
+  },
+  "interviewers": [
+    {
+      "name": "Test Interviewer"
+    },
+    {
+      "name": "Second Tester"
+    }
+  ],
+  "summary": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper.</p>",
+  "bios": [
+    "<p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+  ],
+  "sessions": [
+    {
+      "media": "video",
+      "video": {
+        "src": "/media/interview.mp4",
+        "duration": 180,
+        "captions": [
+          {
+            "label": "English",
+            "srclang": "en",
+            "src": "/data/interview.vtt"
+          }
+        ]
+      },
+      "index": [
+        [
+          0,
+          "Opening questions and placeholder introductions"
+        ],
+        [
+          30,
+          "Lorem ipsum chapter about early experiences"
+        ],
+        [
+          66,
+          "Consectetur adipiscing: a second placeholder chapter"
+        ],
+        [
+          102,
+          "Sed do eiusmod tempor and related themes"
+        ],
+        [
+          138,
+          "Closing reflections on the test material"
+        ]
+      ],
+      "transcript": [
+        [
+          0,
+          "<strong>Test Interviewer:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.?",
+          "question"
+        ],
+        [
+          6,
+          "<strong>Test Speaker A:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "answer"
+        ],
+        [
+          18,
+          "<strong>Test Interviewer:</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.?",
+          "question"
+        ],
+        [
+          24,
+          "<strong>Test Speaker A:</strong> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.",
+          "answer"
+        ],
+        [
+          36,
+          "<strong>Test Interviewer:</strong> Curabitur blandit tempus porttitor?",
+          "question"
+        ],
+        [
+          42,
+          "<strong>Test Speaker A:</strong> Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "answer"
+        ],
+        [
+          54,
+          "<strong>Test Interviewer:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.?",
+          "question"
+        ],
+        [
+          60,
+          "<strong>Test Speaker A:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "answer"
+        ],
+        [
+          72,
+          "<strong>Test Interviewer:</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.?",
+          "question"
+        ],
+        [
+          78,
+          "<strong>Test Speaker A:</strong> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.",
+          "answer"
+        ],
+        [
+          90,
+          "<strong>Test Interviewer:</strong> Curabitur blandit tempus porttitor?",
+          "question"
+        ],
+        [
+          96,
+          "<strong>Test Speaker A:</strong> Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "answer"
+        ],
+        [
+          108,
+          "<strong>Test Interviewer:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.?",
+          "question"
+        ],
+        [
+          114,
+          "<strong>Test Speaker A:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "answer"
+        ],
+        [
+          126,
+          "<strong>Test Interviewer:</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.?",
+          "question"
+        ],
+        [
+          132,
+          "<strong>Test Speaker A:</strong> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.",
+          "answer"
+        ],
+        [
+          144,
+          "<strong>Test Interviewer:</strong> Curabitur blandit tempus porttitor?",
+          "question"
+        ],
+        [
+          150,
+          "<strong>Test Speaker A:</strong> Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "answer"
+        ],
+        [
+          162,
+          "<strong>Test Interviewer:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.?",
+          "question"
+        ],
+        [
+          168,
+          "<strong>Test Speaker A:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "answer"
+        ]
+      ]
+    }
+  ],
+  "related": [
+    {
+      "title": "Test Speaker B",
+      "url": "/interviews/test-speaker-a",
+      "image": "/media/tiles/clip-2.jpg"
+    },
+    {
+      "title": "Test Speaker C",
+      "url": "/interviews/test-speaker-a",
+      "image": "/media/tiles/clip-3.jpg"
+    },
+    {
+      "title": "Test Speaker D",
+      "url": "/interviews/test-speaker-a",
+      "image": "/media/tiles/clip-4.jpg"
+    },
+    {
+      "title": "Test Speaker E",
+      "url": "/interviews/test-speaker-a",
+      "image": "/media/tiles/clip-5.jpg"
+    },
+    {
+      "title": "Test Speaker F",
+      "url": "/interviews/test-speaker-a",
+      "image": "/media/tiles/clip-6.jpg"
+    },
+    {
+      "title": "Test Speaker G",
+      "url": "/interviews/test-speaker-a",
+      "image": "/media/tiles/clip-7.jpg"
+    },
+    {
+      "title": "Test Speaker H",
+      "url": "/interviews/test-speaker-a",
+      "image": "/media/tiles/clip-8.jpg"
+    },
+    {
+      "title": "Test Speaker I",
+      "url": "/interviews/test-speaker-a",
+      "image": "/media/tiles/clip-9.jpg"
+    }
+  ],
+  "downloads": [
+    {
+      "name": "Transcript",
+      "ext": "PDF",
+      "size": "0.2MB",
+      "url": "#"
+    },
+    {
+      "name": "Captions",
+      "ext": "VTT",
+      "size": "4KB",
+      "url": "/data/interview.vtt"
+    }
+  ]
+}

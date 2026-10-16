@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oral History Archive — UX test build</title>
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body class="is-not-ready">
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="sprite-arrow-down" viewBox="0 0 7 11">
+        <path d="M.574 7.387l2.775 2.86 2.897-2.822M3.387 1.004v9.281" stroke="currentColor" stroke-width=".5" fill="none" />
+      </symbol>
+      <symbol id="sprite-arrow-right" viewBox="0 0 6 12">
+        <path d="M0.44 10.93L5.15 6.04L0.53 0.97" stroke="currentColor" stroke-width="0.8" fill="none" />
+      </symbol>
+    </svg>
+
+    <header class="s-header" id="header">
+      <div class="s-header__wrap grid-wrap">
+        <a class="s-header__logo" href="/" aria-label="Home">
+          <span>Oral History</span>
+          <span>Archive</span>
+          <span>Test</span>
+          <span>Build</span>
+        </a>
+        <button class="s-header__menu"><span>Menu</span></button>
+      </div>
+    </header>
+
+    <main id="content">
+      <article data-page>
+        <section class="module">
+          <div class="m-intro">
+            <div class="m-intro__top grid-wrap">
+              <div class="m-intro__main col-span-12" data-scroll="home">
+                <figure
+                  class="m-intro__graph js-audio-toggle is-muted"
+                  data-component="AudioGraph"
+                  data-options='{"loops":[{"label":"Test Speaker A","url":"/interviews/test-speaker-a","timestamp":0},{"label":"","url":"","timestamp":11},{"label":"","url":"","timestamp":24},{"label":"Test Speaker B","url":"/interviews/test-speaker-a","timestamp":36},{"label":"Test Speaker C","url":"/interviews/test-speaker-a","timestamp":61}]}'
+                >
+                  <canvas></canvas>
+                </figure>
+                <div class="m-intro__title js-title">
+                  <span>Placeholder</span> <span>headline</span> <span>for</span> <span>a</span>
+                  <span>motion</span> <span>and</span> <span>layout </span>
+                </div>
+                <div class="m-intro__title js-title"><span>fidelity</span> <span>test</span></div>
+                <figure class="m-intro__thumbnail">
+                  <a href="/interviews/test-speaker-a" class="m-intro__link js-audio-link">
+                    <video src="/media/home-loop.mp4" poster="/media/home-loop.jpg" autoplay loop playsinline muted></video>
+                    <figcaption class="m-intro__caption desktop-only">
+                      <span class="js-audio-caption">Test Speaker A</span>
+                    </figcaption>
+                  </a>
+                </figure>
+              </div>
+              <div class="m-intro__lead col-span-6" data-scroll="homeText" data-delay="1">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+              </div>
+            </div>
+            <div class="m-intro__bottom">
+              <div class="m-intro__bottom-wrap wrap">
+                <a class="m-intro__button" href="#" data-scroll-down>
+                  <i>
+                    <svg><use href="#sprite-arrow-down" /></svg>
+                    <svg><use href="#sprite-arrow-down" /></svg>
+                  </i>
+                  Scroll down
+                </a>
+                <button class="m-intro__button js-audio-toggle">
+                  <span>Turn off sound</span>
+                  <span>Turn on sound</span>
+                  <svg class="svg-sound" viewBox="0 0 11 12" fill="currentColor">
+                    <rect x="1" y="8.5" width="1" height="2.7" />
+                    <rect x="3" y="7.1" width="1" height="4.1" />
+                    <rect x="5" y="5" width="1" height="6.2" />
+                    <rect x="7" y="2.6" width="1" height="8.6" />
+                    <rect x="9" y=".8" width="1" height="10.4" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="module module--dark">
+          <div class="grid wrap">
+            <div class="m-text m-text--decor col-span-5 col-start-7" data-scroll="text">
+              <div class="text">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus
+                  posuere velit aliquet. Maecenas faucibus mollis interdum, donec ullamcorper nulla non metus auctor
+                  fringilla vestibulum id ligula porta.
+                </p>
+                <p>
+                  Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget urna mollis ornare vel eu
+                  leo, sed posuere consectetur est at lobortis&mdash;&mdash;until now.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="m-text__decor gradient-strip"></div>
+        </section>
+
+        <section class="module module--dark">
+          <div class="m-interviews">
+            <div class="wrap">
+              <div class="heading grid">
+                <h3 class="heading__title heading__title--number col-span-6">
+                  <div class="heading__amount">9</div>
+                  Interviews
+                </h3>
+                <p class="heading__lead col-span-6" data-scroll="text">
+                  Placeholder lead: a short paragraph introducing the collection of test interviews shown below.
+                </p>
+              </div>
+            </div>
+            <div class="m-interviews__wrap">
+              <ul class="tiles grid" data-component="Tiles"></ul>
+              <a href="/interviews/test-speaker-a" class="more arrow-hover">
+                <span class="more__label">
+                  <i class="arrow" data-component="Arrow">
+                    <i></i>
+                    <svg viewBox="0 0 6 12"><use href="#sprite-arrow-right" /></svg>
+                  </i>
+                  <span class="arrow-label js-arrow-label">Explore all Interviews</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="module">
+          <div class="m-lead">
+            <div class="wrap">
+              <div class="heading grid">
+                <h3 class="heading__title col-span-6">Partners</h3>
+              </div>
+            </div>
+            <div class="grid wrap">
+              <div class="m-lead__text col-span-5" data-scroll="text">
+                <p>Placeholder partner copy. Sed posuere consectetur est at lobortis, aenean lacinia bibendum nulla.</p>
+              </div>
+            </div>
+            <ul class="m-lead__list wrap">
+              <li>Partner One</li>
+              <li>Partner Two</li>
+              <li>Partner Three</li>
+              <li>Partner Four</li>
+              <li>Partner Five</li>
+              <li>Partner Six</li>
+            </ul>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="s-footer">
+      <span>UX test build — placeholder content and synthetic media only.</span>
+      <nav><a href="/">Home</a><a href="/interviews/test-speaker-a">Sample interview</a></nav>
+    </footer>
+
+    <aside class="interview" id="interview">
+      <div class="interview__main"></div>
+    </aside>
+  </body>
+</html>

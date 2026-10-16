@@ -1,0 +1,309 @@
+.player {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  outline: none;
+}
+.player video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Vignette that deepens while the control bar is hovered. */
+.player::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 50%, rgb(0 0 0 / 0.6));
+  opacity: 0.667;
+  transition: opacity 0.3s;
+}
+.player:has(.player__bar:hover)::after {
+  opacity: 1;
+}
+
+.player__poster {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition:
+    opacity 0.4s,
+    scale 0.4s;
+  pointer-events: none;
+}
+.player.is-played .player__poster,
+.player.is-started .player__poster {
+  opacity: 0;
+  scale: 1.02;
+}
+.player.is-ended .player__poster {
+  opacity: 1;
+  scale: 1;
+}
+
+.player__toggle {
+  position: absolute;
+  inset: 0 0 4.6875rem;
+  z-index: 2;
+}
+
+.player__captions {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3.3125rem;
+  z-index: 2;
+  margin-bottom: 3%;
+  padding: 0 10%;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+}
+.player.has-captions-on .player__captions {
+  opacity: 1;
+}
+.player__captions span {
+  display: inline;
+  padding: 0.15em 0.4em;
+  background: rgb(28 28 28 / 0.7);
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-wrap: balance;
+  box-decoration-break: clone;
+}
+
+/* ---------- Bar ---------- */
+
+.player__bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  height: 4.6875rem;
+  display: flex;
+  align-items: flex-end;
+}
+.player__bar-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
+  height: 2.1875rem;
+  margin-bottom: 1.25rem;
+  padding-left: 1.25rem;
+  color: #e8e8e8;
+}
+
+/* Stacked Play / Pause labels: only the relevant one is in place. */
+.player__playpause {
+  position: relative;
+  display: grid;
+  align-content: start;
+  height: 100%;
+  padding: 0 0.125rem 0 0.3125rem;
+  border-left: 1px solid currentColor;
+  overflow: hidden;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: left;
+}
+/* Both labels share one grid cell, so the button is as wide as the longer one. */
+.player__playpause span {
+  grid-area: 1 / 1;
+  transition:
+    transform 0.3s var(--easing),
+    opacity 0.3s var(--easing);
+}
+.player__playpause span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.player.is-playing .player__playpause span:nth-child(1) {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.player.is-playing .player__playpause span:nth-child(2) {
+  opacity: 1;
+  transform: none;
+}
+
+.player__time {
+  min-width: 10.625rem;
+  margin-top: -0.5rem;
+  padding-right: 0.5rem;
+  padding-left: 0.375rem;
+  translate: 0 0.125rem;
+  font-size: 3rem;
+  line-height: 0.8333;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.player__time i {
+  font-style: normal;
+  font-family: var(--font-serif);
+}
+
+/* Timeline: a 1px tick every 8px, in three layers of differing opacity. */
+.player__timeline {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  border-left: 1px solid rgb(166 166 166 / 0.8);
+  cursor: pointer;
+  --ticks: linear-gradient(270deg, transparent 0 87.5%, #f7f7f7 87.5% 100%);
+}
+.player__timeline::before,
+.player__hover,
+.player__progress {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--ticks);
+  background-size: 8px 1px;
+  pointer-events: none;
+}
+.player__timeline::before {
+  content: "";
+  right: 0;
+  opacity: 0.1;
+}
+.player__hover {
+  width: 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.player__timeline:hover .player__hover {
+  opacity: 0.1;
+}
+.player__progress {
+  width: 0;
+  opacity: 0.4;
+}
+
+/* ---------- Tools + popups ---------- */
+
+.player__tools {
+  display: flex;
+  height: 100%;
+  padding-right: 0.75rem;
+}
+.player__tool {
+  position: relative;
+  display: flex;
+}
+.player__tool > button {
+  width: 2.25rem;
+  margin: 0 0.1875rem;
+  padding: 0 0.375rem;
+  color: #e8e8e8;
+  transition: color 0.2s;
+}
+.player__tool > button svg {
+  width: 100%;
+  height: 1rem;
+}
+.player__tools:has(.player__tool:hover) .player__tool:not(:hover) > button {
+  color: #7d7d7d;
+}
+.player__tool:hover > button {
+  color: #f7f7f7;
+}
+.player.is-muted .volume-wave {
+  display: none;
+}
+
+.options__list {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  translate: -50% 0;
+  padding: 0.375rem 1.125rem 1.25rem 0;
+  background: linear-gradient(180deg, #2d2b2b 40%, transparent);
+  opacity: 0;
+  transform: translateY(12px) scaleY(0.9);
+  transform-origin: bottom;
+  pointer-events: none;
+  transition:
+    opacity 0.3s var(--easing),
+    transform 0.3s var(--easing);
+}
+.options:hover .options__list,
+.options:focus-within .options__list {
+  opacity: 1;
+  transform: none;
+  pointer-events: all;
+}
+.options__list button {
+  display: block;
+  min-width: 4.375rem;
+  padding: 0 0.75rem;
+  font-size: 0.8125rem;
+  line-height: 2.3077;
+  text-align: left;
+  color: #a6a6a6;
+  white-space: nowrap;
+}
+.options__list button:hover {
+  color: #f7f7f7;
+}
+.options__list button.is-active {
+  color: #f7f7f7;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+.volume__bar {
+  width: 40px;
+  height: 7.5rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 0;
+  cursor: row-resize;
+  transform: translateY(0.75rem) scaleY(0);
+  transition:
+    opacity 0.3s var(--easing) 0.3s,
+    transform 0.3s var(--easing) 0.3s;
+}
+.options--volume:hover .volume__bar {
+  transition-delay: 0s;
+}
+.volume__track {
+  position: relative;
+  width: 1px;
+  height: 100%;
+  margin: 0 auto;
+  background: rgb(166 166 166 / 0.4);
+}
+.volume__value {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  height: 100%;
+  background: #f7f7f7;
+}
+.volume__value::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: #f7f7f7;
+}
+
+.player.is-fullscreen {
+  background: #000;
+}
+.player.is-fullscreen video {
+  object-fit: contain;
+}

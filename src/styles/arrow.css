@@ -1,0 +1,67 @@
+.arrow {
+  --arrow-line-width: 18px;
+  --arrow-line-scale: 3;
+  --arrow-svg-transform: 36px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  color: currentColor;
+}
+.arrow i,
+.arrow svg,
+.arrow-label {
+  transition-property: transform, opacity;
+  transition-duration: 0.4s;
+  transition-timing-function: var(--easing);
+}
+.arrow i,
+.arrow svg {
+  transform-origin: left;
+}
+.arrow i {
+  display: block;
+  width: var(--arrow-line-width);
+  height: 1px;
+  background: currentColor;
+}
+.arrow svg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -1.5px;
+  width: 6.5px;
+  margin-block: auto;
+  will-change: transform;
+}
+.arrow svg path {
+  stroke: currentColor;
+}
+@media (max-width: 1023px) {
+  .arrow {
+    --arrow-line-width: 15px;
+  }
+}
+
+/* Hover: the label drops away and the line stretches across where it was, carrying the arrowhead. */
+.arrow-label.is-vert,
+.arrow.is-vert i,
+.arrow.is-vert svg {
+  transition-delay: 0.1s;
+}
+@media (hover: hover) {
+  .arrow-hover:hover .arrow i,
+  .arrow-hover:focus-visible .arrow i {
+    transform: scaleX(var(--arrow-line-scale));
+  }
+  .arrow-hover:hover .arrow svg,
+  .arrow-hover:focus-visible .arrow svg {
+    transform: translateX(var(--arrow-svg-transform));
+  }
+  .arrow-hover:hover .arrow-label.is-vert,
+  .arrow-hover:focus-visible .arrow-label.is-vert {
+    transition-delay: 0s;
+    transform: translateY(3px);
+    opacity: 0;
+  }
+}

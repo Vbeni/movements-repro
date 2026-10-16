@@ -1,0 +1,163 @@
+.tiles {
+  --grid-gutter: 0;
+  width: 100%;
+}
+
+/* Three-column stagger: first and third columns sit lower than the middle one. */
+@media (min-width: 1024px) {
+  .tiles > :nth-child(3n + 1) {
+    margin-top: 5rem;
+  }
+  .tiles > :nth-child(3n + 3) {
+    margin-top: 5.75rem;
+  }
+}
+@media (max-width: 1023px) {
+  .tiles {
+    display: block;
+  }
+}
+
+.tile-interview {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 4rem;
+}
+@media (max-width: 1023px) {
+  .tile-interview {
+    width: 30rem;
+    margin-bottom: 5rem;
+  }
+  .tile-interview:nth-child(odd) {
+    margin-left: auto;
+  }
+}
+@media (max-width: 659px) {
+  .tile-interview {
+    width: 16.8125rem;
+    margin-bottom: 3rem;
+  }
+}
+
+.tile-interview__link {
+  display: block;
+  width: 100%;
+}
+
+.tile-interview__image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 428 / 285;
+  background: #000;
+}
+.tile-interview__image img,
+.tile-interview__image video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 428 / 285;
+  object-fit: cover;
+}
+.tile-interview__image video {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.1s;
+  pointer-events: none;
+}
+.tile-interview.is-hovered .tile-interview__image video {
+  opacity: 1;
+}
+
+/* The caption block lifts over the image on hover. */
+.tile-interview__content {
+  position: relative;
+  z-index: 2;
+  padding: 0.75rem 1.875rem 0;
+  background: var(--color-bg);
+  transition: translate 0.5s var(--easing);
+}
+
+.tile-interview__name {
+  position: relative;
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #e8e8e8;
+}
+/* Dot before the name; on hover a gradient dot fades in over it. */
+.tile-interview__name::before,
+.tile-interview__name::after {
+  content: "";
+  position: absolute;
+  right: 100%;
+  width: 0.5625rem;
+  height: 0.5625rem;
+  margin: 0.25rem;
+  border-radius: 50%;
+}
+.tile-interview__name::before {
+  background: currentColor;
+}
+.tile-interview__name::after {
+  opacity: 0;
+  rotate: 25deg;
+  transition: opacity 0.3s;
+  background-image: linear-gradient(360deg, #1944a7 0%, #a6a6a6 12%, #ff531c 28%, #ffd6c4 40%, #ff531c 62%);
+}
+
+.tile-interview__location {
+  margin-top: 0.3125rem;
+  margin-left: -0.3em;
+  font-size: 0.875rem;
+  line-height: 1;
+  color: #a6a6a6;
+}
+
+.tile-interview__wrap {
+  position: relative;
+}
+.tile-interview__role,
+.tile-interview__description {
+  padding-top: 0.75rem;
+  padding-right: 10%;
+  font-size: 0.75rem;
+  line-height: 1.16667;
+  font-weight: 400;
+  color: #a6a6a6;
+  text-wrap: balance;
+  transition:
+    opacity 0.4s 0.1s,
+    transform 0.4s var(--easing) 0.1s;
+}
+/* Description waits underneath the role and swaps in on hover. */
+.tile-interview__description {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transform: translateY(0.625rem);
+}
+
+@media (hover: hover) {
+  .tile-interview__link:hover .tile-interview__content,
+  .tile-interview__link:focus-visible .tile-interview__content {
+    translate: 0 -1.25rem;
+  }
+  .tile-interview__link:hover .tile-interview__role,
+  .tile-interview__link:focus-visible .tile-interview__role {
+    opacity: 0;
+    transform: translateY(-0.625rem);
+    transition-delay: 0s, 0s;
+  }
+  .tile-interview__link:hover .tile-interview__description,
+  .tile-interview__link:focus-visible .tile-interview__description {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .tile-interview__link:hover .tile-interview__name::after,
+  .tile-interview__link:focus-visible .tile-interview__name::after {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,216 @@
+:root {
+  --color-bg: #fff;
+  --color-text: #2d2b2b;
+  --color-line: #e8e8e8;
+  --color-cover: #efefef;
+  --easing: cubic-bezier(0.5, 0, 0.2, 1);
+  --header-height: 8rem;
+  --app-height: 100lvh;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+  --font-serif: "Libre Franklin Variable", system-ui, sans-serif;
+
+  --grid-columns: 4;
+  --grid-margin: 16px;
+  --grid-gutter: 16px;
+}
+
+@media (min-width: 660px) {
+  :root {
+    --grid-columns: 8;
+    --grid-margin: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --grid-columns: 12;
+    --grid-margin: 1.5625vw;
+    --grid-gutter: 1.5625vw;
+  }
+}
+
+/* rem tracks the viewport, so the whole layout scales as one piece. */
+html {
+  font-size: 4.26667vw;
+}
+@media (min-width: 660px) {
+  html {
+    font-size: 2.08333vw;
+  }
+}
+@media (min-width: 1024px) {
+  html {
+    font-size: 1.25vw;
+  }
+}
+@media (min-width: 1500px) {
+  html {
+    font-size: 18.75px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+body {
+  font-family: var(--font-mono);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Grey cover that wipes downward (scales toward the bottom edge) once the first page is ready. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 12;
+  background: var(--color-cover);
+  transform-origin: bottom;
+  transition: scale 1s var(--easing);
+  pointer-events: none;
+}
+body:not(.is-not-ready)::after {
+  scale: 1 0;
+}
+body.is-not-ready main,
+body.is-not-ready header {
+  opacity: 0 !important;
+}
+
+.wrap,
+.grid-wrap {
+  margin-inline: var(--grid-margin);
+  width: calc(100% - 2 * var(--grid-margin));
+}
+
+.grid,
+.grid-wrap {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(auto, 1fr));
+  gap: var(--grid-gutter);
+}
+
+[class*="col-span-"] {
+  grid-column: var(--col-start, auto) / span var(--span, 1);
+}
+.col-span-4 {
+  --span: 4;
+}
+.col-span-5 {
+  --span: 5;
+}
+.col-span-6 {
+  --span: 6;
+}
+.col-span-12 {
+  --span: 12;
+}
+.col-start-7 {
+  --col-start: 7;
+}
+@media (max-width: 1023px) {
+  .col-span-5,
+  .col-span-4 {
+    --span: 4;
+  }
+  .col-start-7 {
+    --col-start: 1;
+  }
+  .col-span-12 {
+    --span: 8;
+  }
+}
+@media (max-width: 659px) {
+  [class*="col-span-"] {
+    --span: 4;
+  }
+}
+
+.desktop-only {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .desktop-only {
+    display: block;
+  }
+  .desktop-hide {
+    display: none !important;
+  }
+}
+
+.module {
+  position: relative;
+}
+
+.module--dark {
+  --color-text: #c5c5c5;
+  --color-bg: #1c1c1c;
+  --color-line: #424242;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.text-16 {
+  font-size: 1rem;
+  line-height: 1.3125;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

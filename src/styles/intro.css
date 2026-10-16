@@ -1,0 +1,287 @@
+.m-intro {
+  position: relative;
+  height: var(--app-height);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.m-intro__top {
+  margin-top: var(--header-height);
+  flex-grow: 1;
+}
+@media (min-width: 1024px) {
+  .m-intro__top {
+    row-gap: 0;
+    grid-template-rows: 44% 56%;
+    margin-bottom: 1.25rem;
+  }
+  .m-intro__main {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+/* Headline: two runs of words, each word masked by its line so it can rise into place. */
+.m-intro__title {
+  font-size: 2.60938vw;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  overflow: hidden;
+  padding-bottom: 0.2em;
+  margin-bottom: -0.2em;
+}
+.m-intro__title:nth-of-type(2) {
+  order: 1;
+}
+.m-intro__title span {
+  display: inline-block;
+}
+@media (min-width: 1024px) {
+  .m-intro__title {
+    white-space: nowrap;
+  }
+}
+@media (max-width: 1023px) {
+  .m-intro__title {
+    font-size: 2.5rem;
+    line-height: 1.075;
+    max-width: 25ch;
+  }
+}
+@media (max-width: 659px) {
+  .m-intro__title {
+    font-size: 1.75rem;
+    line-height: 1.10714;
+  }
+}
+
+/* Visualiser sits behind the headline, vertically centred on its baseline. */
+.m-intro__graph {
+  position: absolute;
+  top: 100%;
+  transform: translateY(-50%);
+  z-index: -1;
+  opacity: 0;
+}
+.m-intro__graph canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+@media (min-width: 1024px) {
+  .m-intro__graph {
+    left: 16.71875vw;
+    right: 13.59375vw;
+    height: 39.0625vw;
+    margin-top: -0.25rem;
+  }
+}
+@media (max-width: 1023px) {
+  .m-intro__graph {
+    top: 60%;
+    inset-inline: 0;
+    height: 25vw;
+  }
+}
+
+/* Thumbnail video between the two headline runs. Its white ::before hides the bars below it. */
+.m-intro__thumbnail {
+  position: relative;
+  cursor: pointer;
+}
+.m-intro__thumbnail video {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 13.67188vw;
+  height: 6.25vw;
+  object-fit: cover;
+  background: #efefef;
+  pointer-events: none;
+}
+@media (min-width: 1024px) {
+  .m-intro__thumbnail {
+    margin: 0 0.15625vw 0.25rem;
+  }
+  .m-intro__thumbnail::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1px;
+    height: 50lvh;
+    background: var(--color-bg);
+    pointer-events: none;
+  }
+}
+@media (max-width: 1023px) {
+  .m-intro__thumbnail {
+    position: absolute;
+    right: 0;
+    bottom: 40%;
+  }
+  .m-intro__thumbnail video {
+    width: 13.75rem;
+    height: 8.625rem;
+  }
+}
+
+.m-intro__link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding-top: 1.875rem;
+}
+@media (min-width: 1024px) {
+  .m-intro__link {
+    pointer-events: none;
+  }
+  .m-intro__graph.is-interacted ~ .m-intro__thumbnail .m-intro__link {
+    pointer-events: all;
+  }
+}
+
+/* Speaker name above the thumbnail; on hover it slides left to make room for a short rule. */
+.m-intro__caption {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  margin-top: 0.4375rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: right;
+  font-size: 0.625rem;
+  line-height: 1.6;
+  letter-spacing: -0.05em;
+}
+.m-intro__caption::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 2.5rem;
+  height: 1px;
+  margin-left: 0.375rem;
+  background: currentColor;
+  opacity: 0.6;
+}
+.m-intro__caption span,
+.m-intro__caption::after {
+  display: block;
+  transition: transform 0.4s var(--easing);
+}
+@media (hover: hover) {
+  .m-intro__thumbnail:hover .m-intro__caption span,
+  .m-intro__thumbnail:hover .m-intro__caption::after {
+    transform: translateX(-2.875rem);
+  }
+}
+
+.m-intro__lead {
+  margin-top: auto;
+  padding-right: 12%;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+@media (max-width: 1023px) {
+  .m-intro__lead {
+    display: none;
+  }
+}
+
+/* Grey utility bar at the bottom of the hero. */
+.m-intro__bottom {
+  position: relative;
+  z-index: 1;
+  height: 2.5rem;
+  flex-grow: 0;
+  background: #efefef;
+  border-bottom: 1px solid #c5c5c5;
+}
+.m-intro__bottom-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 100%;
+}
+.m-intro__button {
+  display: flex;
+  align-items: center;
+  gap: 0.4375rem;
+  padding-block: 0.625rem;
+  font-size: 0.625rem;
+  line-height: 1.6;
+  letter-spacing: -0.05em;
+}
+.m-intro__button span:nth-child(1) {
+  display: none;
+}
+.m-intro:not(:has(.is-muted)) .m-intro__button span:nth-child(1) {
+  display: inline;
+}
+.m-intro:not(:has(.is-muted)) .m-intro__button span:nth-child(2) {
+  display: none;
+}
+
+/* Down arrow is doubled so a click can roll one out and the next one in. */
+.m-intro__button i {
+  position: relative;
+  overflow: hidden;
+}
+.m-intro__button i svg {
+  display: block;
+  width: 7px;
+  height: 11px;
+}
+.m-intro__button i svg:nth-of-type(1) {
+  position: absolute;
+  left: 0;
+  bottom: 150%;
+}
+.m-intro__button.is-animating svg {
+  transition: transform 0.8s var(--easing);
+  transform: translateY(150%);
+}
+
+.svg-sound {
+  width: 11px;
+  height: 12px;
+}
+.svg-sound rect {
+  transform-box: fill-box;
+  transform-origin: bottom;
+}
+.m-intro:not(:has(.is-muted)) .svg-sound rect {
+  animation: sound-playing infinite alternate;
+}
+.m-intro:not(:has(.is-muted)) .svg-sound rect:nth-child(1) {
+  animation-duration: 0.5s;
+}
+.m-intro:not(:has(.is-muted)) .svg-sound rect:nth-child(2) {
+  animation-delay: -0.2s;
+  animation-duration: 0.4s;
+}
+.m-intro:not(:has(.is-muted)) .svg-sound rect:nth-child(3) {
+  animation-delay: -0.1s;
+  animation-duration: 0.35s;
+}
+.m-intro:not(:has(.is-muted)) .svg-sound rect:nth-child(4) {
+  animation-delay: -0.3s;
+  animation-duration: 0.45s;
+}
+.m-intro:not(:has(.is-muted)) .svg-sound rect:nth-child(5) {
+  animation-delay: -0.4s;
+  animation-duration: 0.25s;
+}
+@keyframes sound-playing {
+  from {
+    transform: scaleY(0.5);
+  }
+  to {
+    transform: scaleY(1.5);
+  }
+}

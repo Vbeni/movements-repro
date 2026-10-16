@@ -1,0 +1,210 @@
+/* ---------- Statement text on dark ---------- */
+
+.m-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4375rem;
+  padding-block: 1.5rem;
+}
+.m-text--decor {
+  padding-bottom: 5.625rem;
+}
+.m-text .text {
+  display: flex;
+  flex-direction: column;
+}
+.m-text--decor .text {
+  gap: 3rem;
+}
+.m-text--decor p {
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+@media (max-width: 1023px) {
+  .module:has(.m-text) .grid {
+    display: block;
+  }
+  .m-text--decor {
+    padding-block: 1.25rem 9.375rem;
+  }
+  .m-text--decor .text {
+    gap: 1.3125rem;
+  }
+  .m-text--decor p {
+    font-size: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+/* Gradient strip down the left edge, with faint light bands scrolling through it. */
+.m-text__decor {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 1rem;
+}
+
+.gradient-strip {
+  overflow: hidden;
+  background-image: linear-gradient(360deg, #1944a7 0%, #a6a6a6 12%, #ff531c 28%, #ffd6c4 40%, #ff531c 62%);
+}
+.gradient-strip::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  pointer-events: none;
+  background-size: 36px 4.75rem;
+  background-image: linear-gradient(
+    0deg,
+    rgb(255 255 255 / 0.09) 0%,
+    rgb(255 255 255 / 0) 13%,
+    rgb(255 255 255 / 0.09) 14%,
+    rgb(255 255 255 / 0) 22%,
+    rgb(255 255 255 / 0.09) 24%,
+    rgb(255 255 255 / 0) 50%,
+    rgb(255 255 255 / 0.09) 51%,
+    rgb(255 255 255 / 0) 71%,
+    rgb(255 255 255 / 0.09) 72%,
+    rgb(255 255 255 / 0.09) 91%,
+    rgb(255 255 255 / 0) 100%
+  );
+  animation: noise 5s infinite linear;
+}
+@keyframes noise {
+  to {
+    translate: 0 -4.75rem;
+  }
+}
+
+/* ---------- Section heading with a big count ---------- */
+
+.heading {
+  position: relative;
+  width: 100%;
+  padding-block: 1.25rem 6.375rem;
+}
+.heading:has(.heading__amount) {
+  margin-top: 0.125rem;
+  padding-top: 0;
+  padding-bottom: 1.375rem;
+}
+.heading__title {
+  position: relative;
+  display: flex;
+  grid-column-start: 1;
+  font-weight: 300;
+  font-size: 2.5rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.heading__title::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 2.8125rem;
+  margin-top: 0.5rem;
+  margin-right: 0.375rem;
+  background: currentColor;
+}
+.heading__title--number {
+  align-items: flex-end;
+  font-size: 1rem;
+  line-height: 0.875;
+  letter-spacing: -0.03em;
+}
+.heading__title--number::before {
+  position: relative;
+  top: 0.875rem;
+  height: 4.75rem;
+  margin-bottom: -0.3125rem;
+}
+.heading__amount {
+  position: relative;
+  top: 0.0625rem;
+  margin-right: 0.75rem;
+  font-size: 6.25rem;
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+}
+.heading__lead {
+  margin-top: 0.4375rem;
+  padding-right: 14%;
+  font-size: 1rem;
+  line-height: 1.3125;
+  text-wrap: balance;
+}
+@media (max-width: 1023px) {
+  .heading__amount {
+    font-size: 5.25rem;
+  }
+  .heading__lead {
+    padding-right: 0;
+  }
+}
+
+/* ---------- Interviews ---------- */
+
+.m-interviews {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.m-interviews__wrap {
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.more {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.25rem var(--grid-margin) 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #e8e8e8;
+}
+.more__label {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+/* ---------- Partners ---------- */
+
+.m-lead {
+  padding-bottom: 6rem;
+}
+.m-lead__text {
+  font-size: 1rem;
+  line-height: 1.3125;
+}
+.m-lead__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem var(--grid-gutter);
+  margin-top: 3rem;
+}
+.m-lead__list li {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-line);
+  font-size: 0.875rem;
+  line-height: 1.28571;
+}
+
+/* ---------- Footer ---------- */
+
+.s-footer {
+  padding: 2.5rem var(--grid-margin) 1.5rem;
+  background: #efefef;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.s-footer nav {
+  display: flex;
+  gap: 1.5rem;
+}
